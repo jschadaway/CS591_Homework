@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS591_Homework02.iml" filepath="$PROJECT_DIR$/CS591_Homework02.iml" />
       <module fileurl="file://$PROJECT_DIR$/FourthGradeFlashCard.iml" filepath="$PROJECT_DIR$/FourthGradeFlashCard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

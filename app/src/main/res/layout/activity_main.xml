@@ -44,13 +44,14 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@+id/edtQuotient"
-        tools:layout_constraintBaseline_creator="1" />
+        tools:layout_constraintBaseline_creator="1"
+        android:onClick="resetQuestion"/>
 
     <TextView
         android:id="@+id/txtDividend"
         android:layout_width="0dp"
-        android:layout_height="99dp"
-        android:textSize="100sp"
+        android:layout_height="100dp"
+        android:textSize="90sp"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="@+id/txtDivisor"
@@ -62,8 +63,8 @@
     <TextView
         android:id="@+id/txtDivisor"
         android:layout_width="0dp"
-        android:layout_height="102dp"
-        android:textSize="100sp"
+        android:layout_height="100dp"
+        android:textSize="90sp"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"

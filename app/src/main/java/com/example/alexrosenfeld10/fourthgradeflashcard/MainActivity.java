@@ -13,11 +13,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtQuotient;
-    private TextView txtYourAnswer;
-    private Button btnSubmit;
     private TextView txtDividend;
     private TextView txtDivisor;
-    private TextView txtDivisionSign;
 
     private int numCorrect = 0;
     private int numQuestions = 0;
@@ -29,43 +26,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Find view references */
-
-        edtQuotient = (EditText) findViewById(R.id.edtQuotient);
-        txtYourAnswer = (TextView) findViewById(R.id.txtYourAnswer);
-        btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        txtDividend = (TextView) findViewById(R.id.txtDividend);
-        txtDivisor = (TextView) findViewById(R.id.txtDivisor);
-        txtDivisionSign = (TextView) findViewById(R.id.txtDivisionSign);
-
-        /* Set click listeners */
-
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                numQuestions++;
-                resetQuestion();
-            }
-        });
-
         setupQuestion();
     }
 
     /* View editing helper functions */
 
-    private void resetQuestion(){
+    public void resetQuestion(View v){
 
         checkAnswer();
 
+        numQuestions++;
+
         if (numQuestions == 10) {
-            Toast.makeText(getBaseContext(), "You got " + numCorrect + " correct!", Toast.LENGTH_LONG);
-            return;
+            String message = "You got " + numCorrect + " correct!";
+            Toast toast = Toast.makeText(getBaseContext(), message , Toast.LENGTH_LONG);
+            toast.show();
+            numQuestions = 0; // let the user keep going
+            numCorrect = 0; // reset correct count
         }
+
         setupQuestion();
     }
 
     private void setupQuestion() {
-        int newDivisor = random.nextInt(100 - 1);
+
+        /* Find view references */
+
+        edtQuotient = (EditText) findViewById(R.id.edtQuotient);
+        txtDividend = (TextView) findViewById(R.id.txtDividend);
+        txtDivisor = (TextView) findViewById(R.id.txtDivisor);
+
+        int newDivisor = random.nextInt(50 - 1);
         txtDivisor.setText(Integer.toString(newDivisor));
         int newDividend = generateDividendFor(newDivisor);
         txtDividend.setText(Integer.toString(newDividend));
@@ -75,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
     /* Mathematical helper functions */
 
     private int generateDividendFor(int divisor) {
-        int dividend = 1;
+        int dividend = divisor;
 
-        // Heuristic approach for getting a new problem. If we can't find anything within 20 tries, use 1.
-        for (int i = 0; i < 50; i++) {
-            int newDividend = divisor * random.nextInt(100 - 1) + 1;
+        // Heuristic approach for getting a new problem
+        // If we can't find anything within 500 tries, return dividend = divisor
+        // this way, quotient = 1
+        for (int i = 0; i < 500; i++) {
+            int newDividend = divisor * (random.nextInt(50 - 1) + 1);
             if (newDividend <= 100){
                 return newDividend;
             }
@@ -90,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkAnswer() {
 
-        int prevDivisor = Integer.parseInt(txtDivisor.getText().toString());
-        int prevDividend = Integer.parseInt(txtDividend.getText().toString());
-        int correctAnswer = prevDividend / prevDivisor;
+        int divisor = Integer.parseInt(txtDivisor.getText().toString());
+        int dividend = Integer.parseInt(txtDividend.getText().toString());
+        int correctAnswer = dividend / divisor;
 
-        String answer = edtQuotient.getText().toString();
-        int actualAnswer = Integer.parseInt(answer);
+        String answer_string = edtQuotient.getText().toString();
+        int answer = Integer.parseInt(answer_string);
 
-        if (actualAnswer == correctAnswer) {
+        if (answer == correctAnswer) {
             numCorrect++;
         }
     }
