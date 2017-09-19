@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.alexrosenfeld10.fourthgradeflashcard.MainActivity">
+
+    <EditText
+        android:id="@+id/edtQuotient"
+        android:layout_width="128dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintRight_toLeftOf="@+id/btnSubmit"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtYourAnswer"
+        tools:layout_constraintBaseline_creator="1" />
+
+    <TextView
+        android:id="@+id/txtYourAnswer"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:text="Your Answer:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@+id/edtQuotient"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="169dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/edtQuotient"
+        tools:layout_constraintBaseline_creator="1"
+        android:onClick="resetQuestion"/>
+
+    <TextView
+        android:id="@+id/txtDividend"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:textSize="90sp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/txtDivisor"
+        android:layout_marginTop="39dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/txtDivisor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDivisor"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:textSize="90sp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSubmit"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="109dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="101dp"
+        app:layout_constraintTop_toTopOf="@+id/txtDividend"
+        app:layout_constraintLeft_toRightOf="@+id/txtYourAnswer" />
+
+    <TextView
+        android:id="@+id/txtDivisionSign"
+        android:layout_width="0dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="98dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="99dp"
+        android:text="÷"
+        android:textAlignment="center"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtYourAnswer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/txtDivisor"
+        app:layout_constraintTop_toTopOf="@+id/txtDividend"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+</android.support.constraint.ConstraintLayout>
